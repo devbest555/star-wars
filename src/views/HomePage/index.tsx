@@ -125,9 +125,8 @@ const HomePage: React.FC<any> = () => {
     setSelectLabel(label);
 
     if(index == 0) return;
-    
+
     axios.get(apiUrls.base_url+`/${label}`).then((res: {data: any}) => { 
-      // console.log("===res::", res.data);
       if(res.data) {
         setResponse(res.data.results);
         setPageLoading(false);
@@ -148,7 +147,7 @@ const HomePage: React.FC<any> = () => {
     setPageLoading(true);
     if(searchTxt === undefined || searchTxt === '') return;
     
-    axios.get(apiUrls.base_url+`/${searchTxt}`).then((res: {data: any}) => { 
+    axios.get(apiUrls.base_url+`/${searchTxt.trim()}`).then((res: {data: any}) => { 
       console.log("===res::", res.data);
       if(res.data) {
         setResponse(res.data.results);
@@ -196,22 +195,22 @@ const HomePage: React.FC<any> = () => {
       }
       <div>
         {
-          selectLabel.includes('film') && <FilmComponent data = {response} />
+          (selectLabel.includes('film') || searchTxt.includes('film')) && <FilmComponent data = {response} />
         }
         {          
-          selectLabel.includes('people') && <PepoleComponent data = {response} />
+          (selectLabel.includes('people') || searchTxt.includes('people')) && <PepoleComponent data = {response} />
         }
         {          
-          selectLabel.includes('planet') && <PlanetComponent data = {response} />
+          (selectLabel.includes('planet') || searchTxt.includes('planet')) && <PlanetComponent data = {response} />
         }
         {          
-          selectLabel.includes('specie') && <SpeciesComponent data = {response} />
+          (selectLabel.includes('specie') || searchTxt.includes('specie')) && <SpeciesComponent data = {response} />
         }
         {          
-          selectLabel.includes('vehicle') && <VehicleComponent data = {response} />
+          (selectLabel.includes('vehicle') || searchTxt.includes('vehicle')) && <VehicleComponent data = {response} />
         }
         {          
-          selectLabel.includes('starship') && <StarshipComponent data = {response} />
+          (selectLabel.includes('starship') || searchTxt.includes('starship')) && <StarshipComponent data = {response} />
         }
       </div>
     </div>
