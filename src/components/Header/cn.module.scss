@@ -1,0 +1,65 @@
+.headerElement {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  .hideSmall {
+    // width: 75px;
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .accountElement {
+    text-align: center;
+    color: #fff;
+  }
+  .divElement {
+    display: flex;
+    align-items: center;
+    justify-self: start;
+    margin: 15px;
+  }
+  .logoElement {
+    margin: 0px;
+  }
+  .rightElement{
+    display: flex;
+    justify-content: end;
+  }
+  .logoText {
+    white-space: nowrap;
+    padding-top: 17px;
+    font-size: 1.4em;
+    font-family: Helvetica, sans-serif;
+    color: #f5f5f5;
+  }
+  .logoS {
+    color: #f2c945;
+  }
+  .logoT {
+    padding-left: 0.8px;
+  }
+}
+
+@media screen and (max-width: 590px) {    
+  .divElement {
+    margin: 5px !important;
+  }
+  button {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+}
+
+
+@media screen and (max-width: 980px) { 
+  .divElement {
+    margin: 5px !important;
+  }
+  button {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+  .logoText {display:none;}
+}
